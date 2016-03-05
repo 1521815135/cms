@@ -1,0 +1,22 @@
+{
+  "name": "cms scripts",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "shizf"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/jsglobal",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
