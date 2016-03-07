@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="jsglobal/bootstrap/dist/css/bootstrap.min.css"/>
+    <style type="text/css">
+        .form{
+            margin:100px;
+        }
+    </style>
+</head>
+<body style="background-image: url('images/index.png');">
+<div class="container">
+    <form class="form-horizontal" id="form" action="/login" method="post">
+        <fieldset>
+            <legend>登录</legend>
+            <div class="control-group">
+                <label class="control-label" for="input01">用户名</label>
+                <div class="controls"><input type="text" class="input-xlarge" id="username" name="username">
+                    <!--<p class="help-block">字母，数字，汉字皆可</p>-->
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input01">密码</label>
+                <div class="controls">
+                    <input type="password" class="input-xlarge" id="pwd" name="pwd">
+                    <!--<p class="help-block">请输入您的twitter网址，以便我们收录</p>-->
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input01"></label>
+                <div class="controls">
+                    <input type="button" class="btn-primary" id="btn_submit" value="登录"/>
+                    <!--<p class="help-block">请输入您的twitter网址，以便我们收录</p>-->
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+</body>
+<script type="text/javascript" src="jsglobal/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="jsglobal/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#btn_submit").click(function () {
+            var username = $('#username').val();
+            var pwd = $('#pwd').val();
+            if(username == "" || pwd == ""){
+                alert('用户名或者密码不能为空');
+            }else{
+                $('form').submit();
+            }
+        })
+    });
+</script>
+</html>
