@@ -6,7 +6,7 @@
 ##项目技术说明
 * web框架：基于nodejs的express框架
 * 数据库：mongodb
-* 前端：bootstrap,jquery
+* 前端：jquery uikit augular
 * 前端包管理工具：bower
 * 后端包管理工具：npm
 * 源码管理工具：git
