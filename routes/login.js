@@ -9,8 +9,8 @@ router.get('/',function(req,res,next) {
     res.render('login');
 });
 router.post("/", function (req, res, next) {
-   var username = req.body['username'];
-    var pwd = req.body['pwd'];
+   var username = req.body['userName'];
+    var pwd = req.body['userPwd'];
     if(username=="shizf" && pwd == "shizf"){
         res.render('index',{'username':username});
     }
