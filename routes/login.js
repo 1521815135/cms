@@ -12,7 +12,8 @@ router.post("/", function (req, res, next) {
    var username = req.body['userName'];
     var pwd = req.body['userPwd'];
     if(username=="shizf" && pwd == "shizf"){
-        res.render('index',{'username':username});
+        //res.render('index',{'username':username});
+        res.redirect('index',{'username':username});
     }
 });
 module.exports = router;
