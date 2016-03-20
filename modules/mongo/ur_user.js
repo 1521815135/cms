@@ -1,13 +1,8 @@
 /**
  * Created by Administrator on 2016/3/6.
  */
-
-var mongo = require('mongoose');
-mongo.connect(require('../config').mongo_cfg.connection);
-
-var schema = mongo.Schema;
-
-var userschema = new schema({
+var mongo = require('./mongoConfig');
+var userschema = new mongo.Schema({
     'ur_username':String,
     'ur_login_name':String,
     'ur_pwd':String,
@@ -20,11 +15,5 @@ var userschema = new schema({
 
 var userModel = mongo.model('ur_user',userschema);
 
-//var userinfo = new userModel({
-//    'ur_username':"shizf",
-//    'ur_pwd':"shizf",
-//    'ur_create_date':new Date(),
-//    'ur_update_date':new Date()
-//});
 module.exports = userModel;
 
