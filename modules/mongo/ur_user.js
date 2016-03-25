@@ -12,8 +12,7 @@ var userschema = new mongo.Schema({
     'ur_create_date':Date,
     'ur_update_date':Date
 });
-
-var userModel = mongo.model('ur_user',userschema);
+var userModel = mongo.model('userModel',userschema);
 
 module.exports = userModel;
 

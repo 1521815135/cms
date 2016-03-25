@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>注册</title>
     <link rel="stylesheet" href="/jsglobal/uikit/css/uikit.min.css"/>
     <script type="text/javascript" src="/jsglobal/jquery/dist/jquery.min.js"></script>
@@ -56,7 +57,14 @@
                 alert('两次密码输入不一致');
                 return false;
             }
-            $('#form').submit();
+            $.post('/register',{"userName":userName,"userPwd":userPwd,"userConfirmPwd":confirmUserPwd},function(data){
+                if(!data.success){
+                    alert(data.info);
+                    return;
+                }else{
+                    window.location.href = "/index";
+                }
+            });
         });
     });
 </script>

@@ -21,7 +21,7 @@ var userschema = new Schema({
     ur_update_id:String
 });
 //前面定义的表结构绑定到指定的集合上
-var user = mongo.model('ur_user',userschema);
+var user = mongo.model('userModel',userschema);
 var userinfo = new user({
     ur_username :'张梦瑶',
     ur_loginname:'zmy001',
@@ -35,9 +35,9 @@ var userinfo = new user({
 });
 console.log(userinfo.ur_username);
 userinfo.save(function (err, userinfo, numaffect) {
-    if(err){
+    if (err) {
         console.log('add error');
-    }else {
+    } else {
         console.log('add success');
     }
 });
