@@ -1,0 +1,50 @@
+<%layout('layout.ejs')%>
+<ul class="uk-breadcrumb">
+    <li><span>发布</span></li>
+    <li class="uk-active"><span>文章管理</span></li>
+</ul>
+<div class="uk-grid">
+    <div class="uk-width-1-1" id="search">
+        <a class="uk-button uk-button-primary" href="/news/insert">新&nbsp;&nbsp;增</a>
+    </div>
+</div>
+<div class="uk-grid">
+    <div class="uk-width-1-1">
+        <table class="uk-table uk-table-hover uk-table-striped uk-table-condensed">
+            <thead>
+            <tr>
+            <td>操作</td>
+            <td>标题</td>
+            <td>作者</td>
+            <td>描述</td>
+            <td>已发布</td>
+            <td>创建人</td>
+            <td>创建日期</td>
+            </tr>
+            </thead>
+            <tbody>
+            <%if (res){%>
+            <%res.forEach(function (item) {%>
+            <tr>
+                <td>
+                    <a href="/news/detail?id">查看</a> |
+                    <a href="/news/update?id">更新</a> |
+                    <a href="/news/easy?id">发布</a>
+                </td>
+                <td><%=item.new_Title%></td>
+                <td><%=item.new_Author%></td>
+                <td><%=item.new_Description%></td>
+                <td><%=item.new_Is_Active%></td>
+                <td><%=item.new_Create_id%></td>
+                <td><%=item.new_Create_Date.toLocaleString()%></td>
+            </tr>
+            <%});%>
+            <%} else{%>
+            <tr>
+                <td colspan="7">暂无相关数据</td>
+            </tr>
+            <%}%>
+            </tbody>
+        </table>
+    </div>
+</div>

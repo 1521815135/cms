@@ -20,22 +20,21 @@ route.post('/', function (req, res, next) {
         'ur_create_date':new Date(),
         'ur_update_date':new Date()
     });
+    //注意异步嵌套的问题
     userModel.find({'ur_username':userName}, function (err, docs) {
        if(docs.length > 0){
            //res.render('error',{error_no:'500',error_info:'重复注册'});
            console.log('重复用户名');
-           res.json({'success':false,'info':'重复注册'}, 200);
-           return;
+           res.send({'success':false,'info':'重复注册'});
+       }else {
+           userEntity.save(function (err, userEntity, effect) {
+               if (err) {
+                   res.send({'success': false, 'info': '服务端异常'});
+               } else {
+                   res.send({'success': true, 'info': '/index'});
+               }
+           });
        }
-    });
-    userEntity.save(function (err, userEntity, effect) {
-        if(err){
-            res.json({'success':false,'info':'服务端异常'},200);
-            return;
-        }else{
-            res.json({'success':true,'info':'/index'},200);
-            return;
-        }
     });
 });
 module.exports = route;

@@ -4,12 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 //
 var login = require('./routes/login');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var register = require('./routes/register');
+var news = require('./routes/news');
 
 var app = express();
 
@@ -24,6 +26,13 @@ app.engine("ejs",require("ejs-mate"));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(session({
+  secret: 'cms_node',
+  name: 'cms',   //这里的name值得是cookie的name，默认cookie的name是：connect.sid
+  cookie: {maxAge: null },  //设置maxAge是80000ms，即80s后session和相应的cookie失效过期
+  resave: false,
+  saveUninitialized: true
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -31,6 +40,7 @@ app.use('/index', routes);
 app.use('/users', users);
 app.use('/login',login);
 app.use('/register',register);
+app.use('/news',news);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

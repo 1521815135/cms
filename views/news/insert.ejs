@@ -1,0 +1,55 @@
+<%layout('layout.ejs')%>
+<ul class="uk-breadcrumb">
+    <li><span>发布</span></li>
+    <li><a href="/news">文章管理</a></li>
+    <li class="uk-active"><span>新增</span></li>
+</ul>
+<div class="uk-grid">
+<div class="uk-width-1-1">
+    <form action="/news/insert" method="post" id="formNews">
+        <div class="uk-form-row">
+            <span class="uk-width-1-3 uk-text-large uk-text-bold">标题：</span>
+            <input type="text" class="uk-width-1-3 uk-form-large" placeholder="标题" name="new_Title" id="new_Title" value="<%=new_Title%>">
+        </div>
+        <div class="uk-form-row">
+            <span class="uk-width-1-3 uk-text-large uk-text-bold">作者：</span>
+            <input type="text" class="uk-width-1-3 uk-form-large" placeholder="作者" name="new_Author" id="new_Author" value="<%=new_Author%>">
+        </div>
+        <div class="uk-form-row">
+            <span class="uk-width-1-3 uk-text-large uk-text-bold">描述：</span>
+            <input type="text" class="uk-width-1-3 uk-form-large" placeholder="描述" name="new_Description" id="new_Description" value="<%=new_Description%>">
+        </div>
+        <div class="uk-form-row">
+            <span class="uk-width-1-3 uk-text-large uk-text-bold">正文：</span>
+        </div>
+        <div class="uk-form-row">
+            <textarea name="new_Content" id="new_Content" value="<%=new_Content%>" class="uk-width-2-3 uk-form-large" data-uk-htmleditor></textarea>
+        </div>
+        <div class="uk-form-row uk-width-1-3" style="text-align: center;">
+            <input type="submit" id="btnSub" class="uk-button uk-button-primary">
+            <input type="reset" class="uk-button uk-button-primary">
+        </div>
+    </form>
+    <%if(new_Error){%>
+    <div class="uk-alert uk-alert-warning">
+        error:<%=new_Error%>
+    </div>
+    <%}%>
+</div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#btnSub').click(function () {
+            var title = $('#new_Title').val();
+            var author = $('#new_Author').val();
+            var desc = $('#new_Description').val();
+            var content = $('#new_Content').val();
+            if(title==''||author==''||desc==''||content == '') {
+                UIkit.modal.alert("存在空字段");
+                return false;
+            }else{
+                $('#formNews').submit();
+            }
+        });
+    });
+</script>

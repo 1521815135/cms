@@ -4,7 +4,7 @@
 var mongo = require('./mongoConfig');
 var userschema = new mongo.Schema({
     'ur_username':String,
-    'ur_login_name':String,
+    'ur_loginname':String,
     'ur_pwd':String,
     'ur_sex':Boolean,
     'ur_age':Number,
@@ -12,7 +12,7 @@ var userschema = new mongo.Schema({
     'ur_create_date':Date,
     'ur_update_date':Date
 });
-var userModel = mongo.model('userModel',userschema);
+var userModel = mongo.model('ur_users',userschema);
 
 module.exports = userModel;
 
