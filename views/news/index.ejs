@@ -27,9 +27,9 @@
             <%res.forEach(function (item) {%>
             <tr>
                 <td>
-                    <a href="/news/detail?id">查看</a> |
-                    <a href="/news/update?id">更新</a> |
-                    <a href="/news/easy?id">发布</a>
+                    <a href="/news/detail?id=<%=item._id%>">查看</a> |
+                    <a href="/news/update?id=<%=item._id%>">更新</a> |
+                    <a href="/news/easy?id=<%=item._id%>">发布</a>
                 </td>
                 <td><%=item.new_Title%></td>
                 <td><%=item.new_Author%></td>
