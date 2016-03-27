@@ -1,3 +1,4 @@
 # 此行将被git忽略
 
 .idea/	#忽略.idea下所有文件
+node_modules/ 
